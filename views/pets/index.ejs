@@ -1,0 +1,39 @@
+<%- include ('../partials/header') %>
+
+<div class="container">
+
+    <header class="jumbotron">
+        
+        <div class="container">
+
+            <h1> <span><i class="fas fa-2x fa-cat"></i></span> THE MOST ADORABLE PETS</h1>
+            <p>~Just waiting for you to catch up with them</p>
+            <a href="/pets/new">
+                <button class="btn btn-lg btn-primary">ADD AN IMPERILLED ANIMAL!</button>
+            </a>
+        </div>
+        
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+            
+                <!-- displaying pets -->
+            <% pets.forEach(function(pet){ %>
+                <div class="col-md-3 col-sm-6" style="padding: 5px;">
+                    <div class="thumbnail" style="border: 1px solid black; padding: 0;">
+                            <img src="<%= pet.image %>" alt="his image" style="width: 100%; height: 100%">
+                            <div class="caption">
+                                <h4>Name: <%= pet.name %></h4>
+                                <h5>Species: <%= pet.species %></h5>
+                                <!-- <p><strong>Description:</strong> <%= pet.description %> </p> -->
+                            </div>
+                            <a href="/pets/<%= pet._id %>">
+                                <button class="btn btn-sm btn-info" style="margin-bottom: 5px;">INFO</button>
+                            </a>
+                    </div>
+                </div>
+            <% }); %>                 
+    </div>
+</div>
+
+<%- include ('../partials/footer') %>

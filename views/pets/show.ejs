@@ -1,0 +1,88 @@
+<%- include ('../partials/header') %>
+
+<div class="container" id="side-container">
+    <a href="/pets">
+        <button class="btn btn-md btn-primary btn-fixed">
+            Back
+        </button>
+    </a>
+</div>
+
+<div class="container" style="width: 40%; text-align: center; padding-bottom: 10px; height: 100%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="jumbotron">
+                <h1>NAME: <%= pet.name %></h1>
+                <h2>SPECIES: <%= pet.species %></h2>
+            </header>
+
+            <div class="thumbnail" style="padding-bottom: 5rem;">
+            
+                <% if(currentUser && currentUser._id.equals(pet.author.id)){ %>
+                    <a href="/pets/<%= pet._id %>/edit">
+                        <button class="btn btn-sm btn-warning pull-left" style="margin: 5px;">Edit</button>
+                    </a>
+
+                    <form action="/pets/<%= pet._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger pull-left" style="margin: 5px;">Delete</button>
+                    </form>
+                <% }; %>
+                
+                <img src="<%=pet.image%>" alt="his image" style="width: 100%">
+                <div class="caption" style="padding-bottom: 0;">
+                    <p><strong>POST BY: </strong><%= pet.author.username %></p>
+                    <p><strong>DESCRIPTION: </strong><%= pet.description %></p>
+                    <p><strong>ADOPTION STATUS: </strong></p>
+                    <% if(pet.adoptionStatus == "true"){ %>
+                        Adopted
+                    <%} else{ %>
+                        <a href="/pets/<%= pet._id %>/adopt">
+                            <button class="btn btn-sm btn-info">Adopt</button>
+                        </a>
+                    <% } %>
+                </div>
+
+                <hr style="border: 1px solid black; margin: 5px;">
+
+                
+                    <h3 class="pull-left">COMMENTS: </h3>
+                    <a href="/pets/<%= pet._id %>/comments/new">
+                        <button class="btn-md btn-success pull-right" style="margin-top: 2rem;">COMMENT</button>
+                    </a>
+                    
+                    <br>
+                    <% pet.comments.forEach(function(comment){ %>
+                    
+                        <div class="row">
+                            <div class="col-sm-12" style="margin-bottom: 0;">
+                                <strong class="pull-left"><%= comment.author.username %>:</strong>
+                                <span class="pull-right">
+                                    <% var date = new Date;%>
+                                    <%= date.toDateString(); %>
+                                </span>
+                                <br>
+                                <p class="pull-left"><%= comment.text %></p>
+                            </div>
+                        </div>
+
+                        <% if(currentUser && currentUser._id.equals(comment.author.id)){ %>
+                            <div style="width: 27%; margin-bottom: 10px;">
+                                <a href="/pets/<%= pet._id %>/comments/<%= comment._id %>/edit">
+                                    <button class="btn btn-warning btn-xs">EDIT</button>
+                                </a>
+                                <form action="/pets/<%= pet._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                    <button class="btn btn-danger btn-xs">
+                                        DELETE
+                                    </button>
+                                </form>
+                            </div>
+                        <% } %>
+
+                    <% }); %>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('../partials/footer') %>

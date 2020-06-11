@@ -1,0 +1,11 @@
+#side-container{
+    width: 60%;
+    position: fixed;
+    left: 20px;
+    top: 80px;
+   
+}
+
+.jumbotron{
+    text-align: center;
+}

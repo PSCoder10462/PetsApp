@@ -1,0 +1,27 @@
+<%- include ('../partials/header') %>
+
+<div class="container" style="width: 600px; margin-top: 100px;">
+    <header class="jumbotron">
+        <h1><span class="glyphicon glyphicon-user"></span>SIGN UP!</h1>
+    </header>
+
+    <div class="container" style="width: 600px;">
+        <form action="/register" method = 'POST'>
+            <div class="form-grouop">
+                <label><strong>Username:</strong></label>
+                <input type="text" name="username" class="form-control" placeholder="username">
+            </div>
+
+            <div class="form-grouop">
+                <label><strong>Password:</strong></label>
+                <input type="password" name="password" class="form-control" placeholder="password">
+            </div>
+
+            <br>
+
+            <button class="btn btn-lg btn-success btn-block">Submit!</button>
+        </form>
+    </div>
+</div>
+
+<%- include ('../partials/footer') %>

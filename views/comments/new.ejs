@@ -1,0 +1,21 @@
+<%- include ('../partials/header') %>
+
+<div class="container" style="width: 100%;">
+    
+    <header class="jumbotron" style="width: 50%; margin-left: 25%; margin-top: 20px;">
+        <h1>comment here!</h1>
+    </header>
+
+    <div class="container" style="width: 40%;">
+        <form action="/pets/<%= pet._id %>/comments" method="POST">
+            <div class="form-group">
+                <label><strong>Comment:</strong></label>
+                <input type="text" class="form-control" name="comment[text]" placeholder="comment-text">
+            </div>
+            <button class="btn btn-lg btn-block btn-success">Post</button>
+        </form>
+    </div>
+
+</div>
+
+<%- include ('../partials/footer') %>
