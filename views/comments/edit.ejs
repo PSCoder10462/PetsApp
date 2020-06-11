@@ -10,7 +10,7 @@
         <form action="/pets/<%= pet_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
             <div class="form-group">
                 <label><strong>Comment:</strong></label>
-                <input type="text" class="form-control" value="<%= comment.text %>" name="comment[text]">
+                <input type="text" class="form-control" value="<%= comment.text %>" name="comment[text]" required>
             </div>
             <button class="btn btn-lg btn-block btn-success">Save Changes</button>
         </form>

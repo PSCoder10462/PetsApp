@@ -7,24 +7,24 @@
             <form action="/pets" method="POST">
                 <div class="form-group">
                     <label><strong>Name:</strong></label>
-                    <input type="text" name="name" class="form-control" placeholder="name">
+                    <input type="text" name="name" class="form-control" placeholder="name" required>
                 </div>
                 <div class="form-group">
                     <label><strong>Species:</strong></label>
-                    <input type="text" name="species" class="form-control" placeholder="species">
+                    <input type="text" name="species" class="form-control" placeholder="species" required>
                 </div>
                 <div class="form-group">
                     <label><strong>Image Url:</strong></label>
-                    <input type="text" name="image" class="form-control" placeholder="image url">
+                    <input type="text" name="image" class="form-control" placeholder="image url" required>
                 </div>
                 <div class="form-group">
                     <label><strong>Adoption Status:</strong></label>
-                    <input type="radio" name="adopt" value="true">  adopted
-                    <input type="radio" name="adopt" value="false"> not adopted yet
+                    <input type="radio" name="adopt" value="true" required>  adopted
+                    <input type="radio" name="adopt" value="false" required> not adopted yet
                 </div>
                 <div class="form-group">
                     <label><strong>Description:</strong></label>
-                    <textarea name="description" class="form-control" placeholder="description" row="70"></textarea>
+                    <textarea name="description" class="form-control" placeholder="description" row="70" required></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-md btn-success">Submit!</button>
